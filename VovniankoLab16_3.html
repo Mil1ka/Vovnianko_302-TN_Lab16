@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Обробка події наведення на посилання</title>
+</head>
+<body>
+
+  <a href="https://www.example.com" id="link1">Посилання 1</a>
+  <a href="https://www.example.com/page2" id="link2">Посилання 2</a>
+  <a href="https://www.example.com/page3" id="link3">Посилання 3</a>
+
+  <script>
+    var link1 = document.getElementById('link1');
+    var link2 = document.getElementById('link2');
+    var link3 = document.getElementById('link3');
+
+    // Додаємо обробники подій
+    link1.addEventListener('mouseover', appendHref);
+    link2.addEventListener('mouseover', appendHref);
+    link3.addEventListener('mouseover', appendHref);
+
+    link1.addEventListener('mouseout', removeHref);
+    link2.addEventListener('mouseout', removeHref);
+    link3.addEventListener('mouseout', removeHref);
+
+    function appendHref(event) {
+      var link = event.target;
+      var href = link.getAttribute('href');
+      link.textContent += ' (' + href + ')';
+    }
+
+    function removeHref(event) {
+      var link = event.target;
+      var href = link.getAttribute('href');
+      link.textContent = link.textContent.replace(' (' + href + ')', '');
+    }
+  </script>
+
+</body>
+</html>

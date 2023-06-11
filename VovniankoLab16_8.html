@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Перевірка кількості символів у введеному тексті</title>
+  <style>
+    .valid {
+      border: 2px solid green;
+    }
+
+    .invalid {
+      border: 2px solid red;
+    }
+  </style>
+</head>
+<body>
+
+  <input type="text" data-length="5">
+  <input type="text" data-length="10">
+  <input type="text" data-length="8">
+
+  <script>
+    var inputs = document.querySelectorAll('input');
+
+    function handleInputBlur(event) {
+      var input = event.target;
+      var length = parseInt(input.getAttribute('data-length'));
+      var value = input.value;
+
+      if (value.length === length) {
+        input.classList.remove('invalid');
+        input.classList.add('valid');
+      } else {
+        input.classList.remove('valid');
+        input.classList.add('invalid');
+      }
+    }
+
+    // Додаємо обробник події для кожного input
+    inputs.forEach(function(input) {
+      input.addEventListener('blur', handleInputBlur);
+    });
+  </script>
+
+</body>
+</html>

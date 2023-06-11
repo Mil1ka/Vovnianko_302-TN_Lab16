@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Обробка події натискання на елементи input</title>
+</head>
+<body>
+
+  <input type="text" id="input1" value="name">
+  <input type="text" id="input2" value="lastname">
+  <input type="text" id="input3" value="age">
+
+  <script>
+    var inputs = document.querySelectorAll('input');
+
+    function handleInputClick(event) {
+      var value = event.target.value;
+      alert(value);
+      event.target.removeEventListener('click', handleInputClick);
+    }
+
+    // Додаємо обробник події для кожного input
+    inputs.forEach(function(input) {
+      input.addEventListener('click', handleInputClick);
+    });
+  </script>
+
+</body>
+</html>

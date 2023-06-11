@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Зміна кольору елементів</title>
+  <style>
+    .red {
+      background-color: red;
+    }
+
+    .green {
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <div>Вовнянко</div>
+  <div>Людмила</div>
+  <div>Віталіївна</div>
+
+  <script>
+    var divs = document.querySelectorAll('div');
+    var redClass = 'red';
+    var greenClass = 'green';
+
+    function toggleColor(event) {
+      var div = event.target;
+      var hasRedClass = div.classList.contains(redClass);
+
+      if (hasRedClass) {
+        div.classList.remove(redClass);
+        div.classList.add(greenClass);
+      } else {
+        div.classList.remove(greenClass);
+        div.classList.add(redClass);
+      }
+    }
+
+    function addClickEvent(div) {
+      div.addEventListener('click', toggleColor);
+    }
+
+    function removeClickEvent(div) {
+      div.removeEventListener('click', toggleColor);
+    }
+
+    // Додаємо обробник події для кожного div
+    divs.forEach(function(div) {
+      addClickEvent(div);
+    });
+  </script>
+
+</body>
+</html>

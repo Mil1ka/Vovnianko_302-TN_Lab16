@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Обробка події втрати фокусу у елементів input</title>
+</head>
+<body>
+
+  <input type="text" id="input1">
+  <input type="text" id="input2">
+  <input type="text" id="input3">
+
+  <p id="demo"></p>
+
+  <script>
+    var input1 = document.getElementById('input1');
+    var input2 = document.getElementById('input2');
+    var input3 = document.getElementById('input3');
+    var demo = document.getElementById('demo');
+
+    // Додаємо обробник події для кожного input
+    input1.addEventListener('blur', displayValue);
+    input2.addEventListener('blur', displayValue);
+    input3.addEventListener('blur', displayValue);
+
+    function displayValue(event) {
+      var value = event.target.value;
+      demo.textContent += value + " ";
+    }
+  </script>
+
+</body>
+</html>

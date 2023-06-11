@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Обробка події onclick</title>
+</head>
+<body>
+
+  <img src="image1.jpg" alt="Кіт" width="200" height="300" onclick="showSrc(this)">
+  <img src="image2.jpg" alt="Пес" width="200" height="300" onclick="showSrc(this)">
+  <img src="image3.jpg" alt="Кролик" width="200" height="300" onclick="showSrc(this)">
+
+  <script>
+    function showSrc(image) {
+      var src = image.getAttribute('alt');
+      alert(src);
+    }
+  </script>
+
+</body>
+</html>
